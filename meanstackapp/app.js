@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 
+
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -34,8 +35,22 @@ app.post('/users', function(req,res){
     user.username = req.body.username;
     user.password = req.body.password;
     user.email = req.body.email;
-    user.save();
-    res.send('User created');
+    
+    if(req.body.username == null || req.body.username == '' || req.body.password == null || req.body.password == '' || req.body.email == '' || req.body.email == ''){
+        res.send('Ensure username, email and password were provided');
+    }
+    else
+        {
+    user.save(function(err){
+        if(err){
+            res.send('Username or Email already Exists. Please try a different username or an email address');
+        }
+        else{
+            res.send('User created');
+        }
+    });
+        }
+    
 });
 
 app.listen(port , function(req,res){
