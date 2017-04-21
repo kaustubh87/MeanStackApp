@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
+var bcrypt = require('bcrypt-nodejs');
 
 var UserSchema = new Schema({
    username: {
@@ -17,6 +18,22 @@ var UserSchema = new Schema({
         required:true,
         unique:true
     }
+});
+
+//Schema Pre save to encrypt the password;
+
+UserSchema.pre('save', function(next){
+   var user = this;
+    bcrypt.hash(user.password, null , null, function(err,hash){
+        if(err)
+            {
+                return next(err);
+            }
+        
+        user.password = hash;
+        next();
+    });
+    
 });
 
 
