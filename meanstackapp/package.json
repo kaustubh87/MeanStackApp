@@ -1,0 +1,16 @@
+{
+  "name": "meanstackapp",
+  "version": "1.0.0",
+  "description": "Mean Stack App using Node, Express, Angular and MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaustubh Vinzanekar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0"
+  }
+}
