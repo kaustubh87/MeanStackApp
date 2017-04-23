@@ -1,0 +1,20 @@
+{
+  "name": "meanstackapp",
+  "description": "Mean Stack App using Node, Express, Angular and MongoDB",
+  "main": "app.js",
+  "authors": [
+    "Kaustubh Vinzanekar"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/kaustubh87/MeanStackApp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
