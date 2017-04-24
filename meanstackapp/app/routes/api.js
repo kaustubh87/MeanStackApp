@@ -23,7 +23,10 @@ module.exports = function (router) {
                         message : 'Username or Email already Exists. Please try a different username or an email address'
                     });
                 } else {
-                    res.send('User created');
+                   res.json({
+                       success: true,
+                       message: 'User created'
+                   });
                 }
             });
         }
