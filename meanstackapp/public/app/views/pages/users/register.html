@@ -4,13 +4,13 @@
 
 <form ng-submit="register.regUser();">
     <label>Email:</label>
-    <input class="form-control" type="text" name="email" placeholder="Please enter email">
+    <input class="form-control" type="text" name="email" placeholder="Please enter email" ng-model="register.regData.email">
     <br>
     <label>Username:</label>
-    <input class="form-control" type="text" name="username" placeholder="Please enter username">
+    <input class="form-control" type="text" name="username" placeholder="Please enter username" ng-model="register.regData.username">
     <br>
     <label>Password:</label>
-    <input class="form-control" type="password" name="password" placeholder="Please enter password">
+    <input class="form-control" type="password" name="password" placeholder="Please enter password" ng-model="register.regData.password">
     <br>
     <button type="submit">Register</button>
     
