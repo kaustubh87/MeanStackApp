@@ -1,9 +1,13 @@
 angular.module('userControllers', [])
 
-.controller('regCtrl', function () {
+.controller('regCtrl', function ($http) {
     
-    this.regUser = function(){
-        console.log('Testing register button');
+    this.regUser = function(regData){
+        console.log('form submitted');
+        console.log(this.regData);
+        
+        $http.post('/api/users' , this.regData);
     };
 
 });
+
