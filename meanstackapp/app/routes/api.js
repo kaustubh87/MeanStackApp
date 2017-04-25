@@ -1,6 +1,8 @@
 var User = require('../models/user');
 
 module.exports = function (router) {
+    
+    //USER REGISTRATION ROUTE
 
     router.post('/users', function (req, res) {
         var user = new User();
@@ -32,7 +34,20 @@ module.exports = function (router) {
         }
 
     });
-
+    
+    //USER LOGIN ROUTE
+    
+    router.post('/authenticate', function(req,res){
+       User.findOne({username: req.body.username}).select('email username password').exec(function(err, user){
+           if(err) throw err;
+           if(!user){
+               res.json({success: false, message: "Couldnot authenticate user"});
+           }
+           else if(user){
+               
+           }
+       });
+    });
     return router;
 
 }
