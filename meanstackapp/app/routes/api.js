@@ -44,7 +44,19 @@ module.exports = function (router) {
                res.json({success: false, message: "Couldnot authenticate user"});
            }
            else if(user){
-               
+               if(req.body.password){
+                  var validPassword = user.comparePassword(req.body.password); 
+               }
+               else{
+                   res.json({success: false , message: 'No Password Provided'});
+               }
+               if(!validPassword){
+                   res.json({sucess: false, message: "Password incorrect"});
+               }
+               else
+                   {
+                       res.json({success:true, message:"User Authenicated"});
+                   }
            }
        });
     });
