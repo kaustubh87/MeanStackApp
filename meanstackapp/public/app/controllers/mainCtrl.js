@@ -1,5 +1,5 @@
-angular.module('mainController', [])
+angular.module('mainController', ['authServices'])
 
-.controller('mainCtrl', function(){
-    console.log('Inside main ctrl');
+.controller('mainCtrl', function(authServices){
+    
 });
